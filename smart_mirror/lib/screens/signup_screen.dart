@@ -528,7 +528,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    const CustomizeScreen())); //for sign up
+                                    const UploadPhotoScreen())); //for sign up
                       }).onError((error, stackTrace) async {
                         print("Error ${error.toString()}");
                         if (error.toString() ==
