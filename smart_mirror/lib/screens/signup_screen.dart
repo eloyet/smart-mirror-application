@@ -1,14 +1,12 @@
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:smart_mirror/reusable_widgets/reusable_widget.dart';
-import 'package:smart_mirror/screens/signin_screen.dart';
 import 'package:smart_mirror/screens/upload_photo.dart';
-import 'package:smart_mirror/service/storage_service.dart';
 import 'package:smart_mirror/service/auth.dart';
 import 'package:smart_mirror/utils/my_clipper.dart';
-// this is the code for the signup screen 
+
+// this is the code for the signup screen
 //user should give the details and signup
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -36,9 +34,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
       _userSurnameTextController = //for surname textfield
       TextEditingController();
   DateTime birth = DateTime.now();
-  DateTime now = new DateTime.now();
+  DateTime now = DateTime.now();
 
-  bool defaultuser = false; 
+  bool defaultuser = false;
 /*   final TextEditingController _addressTextController =
       TextEditingController(); */ //for address textfield
 
@@ -139,7 +137,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final Storage storage = Storage();
     return Scaffold(
       backgroundColor: Colors.blueGrey[800],
       appBar: AppBar(
@@ -276,13 +273,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 Container(
                                   child: Row(
                                     children: <Widget>[
-                                      Icon(
+                                      const Icon(
                                         Icons.map_outlined,
                                         color: Colors.black,
                                       ),
                                       Text(
                                         "  $_city",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16),
@@ -311,7 +308,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             showTitleActions: true,
                             minTime: DateTime(1900, 1, 1),
-                            maxTime:  DateTime(now.year, 12, 31), onConfirm: (date) {
+                            maxTime: DateTime(now.year, 12, 31),
+                            onConfirm: (date) {
                           _date = '${date.year} - ${date.month} - ${date.day}';
                           birth = date;
                           setState(() {});
@@ -407,13 +405,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 Container(
                                   child: Row(
                                     children: <Widget>[
-                                      Icon(
+                                      const Icon(
                                         Icons.man,
                                         color: Colors.black,
                                       ),
                                       Text(
                                         "  $_gender",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16),
@@ -505,14 +503,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         );
                         return;
                       }
-                        if (selectedValue_country == 'Please Select a City') {
+                      if (selectedValue_country == 'Please Select a City') {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('You have to choose a city.'),
                           ),
                         );
                         return;
-                      } 
+                      }
                       _authService
                           .createPerson(
                               //for sign up
@@ -564,13 +562,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           );
                           return;
-                        } else
+                        } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content:
                                   Text('Succesfully Registered'), //if no error
                             ),
                           );
+                        }
                       });
                     })
                   ],

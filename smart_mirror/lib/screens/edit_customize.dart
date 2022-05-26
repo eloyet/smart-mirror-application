@@ -288,7 +288,7 @@ class _EditCustomizeScreenState extends State<EditCustomizeScreen> {
                     title: const Text(
                       'Welcome Message',
                       textAlign: TextAlign.left,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         overflow: TextOverflow.fade
@@ -327,7 +327,7 @@ class _EditCustomizeScreenState extends State<EditCustomizeScreen> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.006,
                   ),
-                  AddReminderButton(context, false, () {
+                  addReminderButton(context, false, () {
                     
                       if(dwreminder == "false"){
                          ScaffoldMessenger.of(context).showSnackBar(
@@ -346,9 +346,9 @@ class _EditCustomizeScreenState extends State<EditCustomizeScreen> {
                       }
                    
                   }),
-                  EditCustomizeMirrorButton(context, false, () { //save the customized settings to the database
+                  editCustomizeMirrorButton(context, false, () { //save the customized settings to the database
                     _authService
-                        .EditCustomizeButton(
+                        .editCustomizeButton(
                       dwtime.toString(),
                       dwdate.toString(),
                       dwweather.toString(),

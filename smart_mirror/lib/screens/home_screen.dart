@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_new
 
 import 'package:flutter/material.dart';
-import 'package:smart_mirror/screens/customize_screen.dart';
 import 'package:smart_mirror/screens/edit_customize.dart';
 import 'package:smart_mirror/screens/edit_screen.dart';
 import 'package:smart_mirror/screens/signin_screen.dart';
@@ -34,8 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
               clipper: MyClipper(),
               child: Container(
                 color: Colors.blueGrey[700],
-                 width: MediaQuery.of(context).size.width * 1,
-                  height: MediaQuery.of(context).size.height * 1,
+                width: MediaQuery.of(context).size.width * 1,
+                height: MediaQuery.of(context).size.height * 1,
               ),
             ),
           ),
@@ -45,14 +44,15 @@ class _HomeScreenState extends State<HomeScreen> {
               clipper: MySecondClipper(),
               child: Container(
                 color: Colors.blueGrey,
-                 width: MediaQuery.of(context).size.width * 1,
-                  height: MediaQuery.of(context).size.height * 1,
+                width: MediaQuery.of(context).size.width * 1,
+                height: MediaQuery.of(context).size.height * 1,
               ),
             ),
           ),
           SingleChildScrollView(
               child: Padding(
-                  padding: EdgeInsets.all(MediaQuery.of(context).size.width /13), //MediaQuery provides widget to rebuild automatically
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width /
+                      13), //MediaQuery provides widget to rebuild automatically
                   child: Column(
                     children: <Widget>[
                       Align(
@@ -88,10 +88,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: MediaQuery.of(context).size.height * 0.09,
                         color: Colors.black,
                         textColor: Colors.white,
-                        child: const Text("MANAGE PERSONAL SETTINGS",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 16),
-                            overflow: TextOverflow.fade,),
+                        child: const Text(
+                          "MANAGE PERSONAL SETTINGS",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16),
+                          overflow: TextOverflow.fade,
+                        ),
                         shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(90),
                         ),
@@ -133,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.black,
                         textColor: Colors.white,
                         child: const Text("CUSTOMIZE THE MIRROR",
-                        textAlign: TextAlign.center,
+                            textAlign: TextAlign.center,
                             style: TextStyle(fontSize: 16),
                             overflow: TextOverflow.fade),
                         shape: new RoundedRectangleBorder(

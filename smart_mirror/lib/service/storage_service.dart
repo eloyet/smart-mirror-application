@@ -6,7 +6,6 @@ import 'package:firebase_core/firebase_core.dart' as firebase_core;
 
 class Storage {  //class for the connection with the firebase and the storage
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final CollectionReference personCollection =
       FirebaseFirestore.instance.collection("Person");
 

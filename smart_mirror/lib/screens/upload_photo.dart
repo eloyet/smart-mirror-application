@@ -1,9 +1,6 @@
 import 'package:file_picker/file_picker.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:smart_mirror/reusable_widgets/reusable_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_mirror/screens/customize_screen.dart';
-import 'package:smart_mirror/screens/signin_screen.dart';
 import 'package:smart_mirror/utils/my_clipper.dart';
 
 import '../service/storage_service.dart';
@@ -15,7 +12,7 @@ class UploadPhotoScreen extends StatefulWidget {
   _UploadPhotoScreenState createState() => _UploadPhotoScreenState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
   bool uploadValue = false;
@@ -66,8 +63,8 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
                   const SizedBox(
                     height: 180,
                   ),
-                  InkWell(
-                    child: const Text(
+                  const InkWell(
+                    child: Text(
                       "Please upload a photo of yourself \n     that clearly shows your face.",
                       style: TextStyle(
                           color: Colors.white,
@@ -90,8 +87,8 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
                       fixedSize: const Size(480, 60),
                       primary: Colors.blue[100],
                       onPrimary: Colors.black,
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(90),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(90),
                       ),
                     ),
                     onPressed: () async {
@@ -130,8 +127,8 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
                     color: Colors.black,
                     textColor: Colors.white,
                     child: const Text("DONE", style: TextStyle(fontSize: 19)),
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(90),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(90),
                     ),
                     onPressed: () {
                       if (uploadValue == true) {

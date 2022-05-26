@@ -69,7 +69,7 @@ TextField reminderTextField(String text, IconData icon, bool isPasswordType,
       labelText: text,
       labelStyle: TextStyle(color: Colors.black.withOpacity(0.9)),
       filled: true,
-      contentPadding: EdgeInsets.all(16),
+      contentPadding: const EdgeInsets.all(16),
       floatingLabelBehavior: FloatingLabelBehavior.never,
       fillColor: Colors.blue[100],
       border: OutlineInputBorder(
@@ -217,7 +217,7 @@ Container forgotPasswordButton(BuildContext context, Function onTap) {
   );
 }
 
-Container EditInformationButton(
+Container editInformationButton(
     BuildContext context, bool isLogin, Function onTap) {
   return Container(
     width: MediaQuery.of(context).size.width,
@@ -246,7 +246,7 @@ Container EditInformationButton(
   );
 }
 
-Container CustomizeMirrorButton(
+Container customizeMirrorButton(
     BuildContext context, bool isLogin, Function onTap) {
   return Container(
     width: MediaQuery.of(context).size.width,
@@ -275,7 +275,7 @@ Container CustomizeMirrorButton(
   );
 }
 
-Container EditCustomizeMirrorButton(
+Container editCustomizeMirrorButton(
     BuildContext context, bool isLogin, Function onTap) {
   return Container(
     width: MediaQuery.of(context).size.width,
@@ -304,7 +304,7 @@ Container EditCustomizeMirrorButton(
   );
 }
 
-Container AddReminderButton(
+Container addReminderButton(
     BuildContext context, bool isLogin, Function onTap) {
   return Container(
     width: MediaQuery.of(context).size.width,
@@ -335,7 +335,7 @@ Container AddReminderButton(
   );
 }
 
-Container ReminderButton(BuildContext context, bool isLogin, Function onTap) {
+Container reminderButton(BuildContext context, bool isLogin, Function onTap) {
   return Container(
     width: MediaQuery.of(context).size.width,
     height: 50,

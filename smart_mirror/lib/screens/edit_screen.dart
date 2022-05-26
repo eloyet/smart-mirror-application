@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_new
+
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -40,10 +42,10 @@ class _EditScreenState extends State<EditScreen> {
   final TextEditingController _userSurnameTextController =
       TextEditingController();
   DateTime birth = DateTime.now();
-  var formate1 ='';
+  var formate1 = '';
   //final TextEditingController _genderTextController = TextEditingController();
   final TextEditingController _addressTextController = TextEditingController();
-  DateTime now = new DateTime.now();
+  DateTime now = DateTime.now();
 
   // This part contains birthdate information of user...
   // The part where the date scale is determined...
@@ -175,8 +177,6 @@ class _EditScreenState extends State<EditScreen> {
     });
   }
 
-
-
   @override
   void initState() {
     super.initState();
@@ -242,7 +242,7 @@ class _EditScreenState extends State<EditScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                 
+
                     RaisedButton(
                       //for date picker
                       shape: RoundedRectangleBorder(
@@ -286,7 +286,8 @@ class _EditScreenState extends State<EditScreen> {
                                   ),
                                 ));
                       },
-                      child: Container( //for city picker
+                      child: Container(
+                        //for city picker
                         alignment: Alignment.center,
                         height: 60,
                         child: Row(
@@ -297,13 +298,13 @@ class _EditScreenState extends State<EditScreen> {
                                 Container(
                                   child: Row(
                                     children: <Widget>[
-                                      Icon(
+                                      const Icon(
                                         Icons.map_outlined,
                                         color: Colors.black,
                                       ),
                                       Text(
                                         "  $country",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16),
@@ -332,7 +333,8 @@ class _EditScreenState extends State<EditScreen> {
                             ),
                             showTitleActions: true,
                             minTime: DateTime(1900, 1, 1),
-                            maxTime: DateTime(now.year, 12, 31), onConfirm: (date) {
+                            maxTime: DateTime(now.year, 12, 31),
+                            onConfirm: (date) {
                           dateInfo =
                               '${date.year} - ${date.month} - ${date.day}';
                           String todayInfo =
@@ -435,13 +437,13 @@ class _EditScreenState extends State<EditScreen> {
                                 Container(
                                   child: Row(
                                     children: <Widget>[
-                                      Icon(
+                                      const Icon(
                                         Icons.man,
                                         color: Colors.black,
                                       ),
                                       Text(
                                         "  $gender",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16),
@@ -512,23 +514,28 @@ class _EditScreenState extends State<EditScreen> {
                     //  personal information...
                     //  But now it has no function...
 
-                    EditInformationButton(context, false, () {
-                      if (_userNameTextController.text == '') {  //if the user name is empty then do not update the user name
+                    editInformationButton(context, false, () {
+                      if (_userNameTextController.text == '') {
+                        //if the user name is empty then do not update the user name
                         _userNameTextController.text = userName;
                       }
-                      if (_userSurnameTextController.text == '') {  //if the user surname is empty then do not update the user surname
+                      if (_userSurnameTextController.text == '') {
+                        //if the user surname is empty then do not update the user surname
                         _userSurnameTextController.text = userSurname;
                       }
-                      if (_addressTextController.text == '') {  //if the address is empty then do not update the address
+                      if (_addressTextController.text == '') {
+                        //if the address is empty then do not update the address
                         _addressTextController.text = country;
                       }
-                      if (selectedValue_country == '') { //if the country is empty then do not update the country
+                      if (selectedValue_country == '') {
+                        //if the country is empty then do not update the country
                         selectedValue_country = country;
                       }
-                      if (selectedValue_gender == '') {  // if the gender is empty then do not update the gender
+                      if (selectedValue_gender == '') {
+                        // if the gender is empty then do not update the gender
                         selectedValue_gender = gender;
                       }
-                          if (selectedValue_gender == 'Please Select a Gender') {
+                      if (selectedValue_gender == 'Please Select a Gender') {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('You have to choose a gender.'),
@@ -536,14 +543,14 @@ class _EditScreenState extends State<EditScreen> {
                         );
                         return;
                       }
-                        if (selectedValue_country == 'Please Select a City') {
+                      if (selectedValue_country == 'Please Select a City') {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('You have to choose a city.'),
                           ),
                         );
                         return;
-                      } 
+                      }
                       print(birth);
 
                       // if (birth.toString() == deneme) {
@@ -551,12 +558,14 @@ class _EditScreenState extends State<EditScreen> {
                       // }
 
                       _authService
-                          .updatePerson(  //save the user's information to the database
-                              _userNameTextController.text,
-                              _userSurnameTextController.text,
-                              selectedValue_country,
-                              selectedValue_gender,
-                              birth)
+                          .updatePerson(
+                        //save the user's information to the database
+                        _userNameTextController.text,
+                        _userSurnameTextController.text,
+                        selectedValue_country,
+                        selectedValue_gender,
+                        birth,
+                      )
                           // If inside of textfield is null then do not update from firestore database...
                           .then((value) {
                         return Navigator.push(

@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_mirror/screens/home_screen.dart';
 import 'package:smart_mirror/screens/signin_screen.dart';
-import 'package:smart_mirror/screens/upload_photo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -55,16 +53,16 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     Timer(
         const Duration(seconds: 3), //entrance screen of the app
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const SignInScreen())));
+        () => Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const SignInScreen())));
   }
 
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     return Container(
       color: Colors.blueGrey[800],
       child: Image.asset(
-        'assets/entrance.png',  
+        'assets/entrance.png',
 /*         width: MediaQuery.of(context).size.width * 0.85,
         height: MediaQuery.of(context).size.height * 0.4,
         fit: BoxFit.cover, */

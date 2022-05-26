@@ -235,7 +235,7 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                     },
                     title: const Text(
                       'Welcome Message',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -266,7 +266,7 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                       size: 30,
                     ),
                   ),
-                  AddReminderButton(context, false, () {
+                  addReminderButton(context, false, () {
                       if(wreminder == false){
                          ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
@@ -284,7 +284,7 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                       }
                    
                   }),
-                  CustomizeMirrorButton(context, false, () { //saved the preferences to firebase
+                  customizeMirrorButton(context, false, () { //saved the preferences to firebase
                     _authService
                         .customizeButton(
                       wtime.toString(),
