@@ -90,9 +90,9 @@ class AuthService {
       String wreminder,
       String wwelcome,
       String wfood,
-      String reminder1,
-      String reminder2,
-      String reminder3) async {
+      String _reminderTextController1,
+      String _reminderTextController2,
+      String _reminderTextController3) async {
     var collection = FirebaseFirestore.instance.collection('Person');
     collection
         .doc(userData?.uid) // <-- Doc ID where data should be updated.
@@ -106,9 +106,9 @@ class AuthService {
           'reminder_widget': wreminder,
           'welcome_widget': wwelcome,
           'food_widget': wfood,
-          'reminder1': '',
-          'reminder2': '',
-          'reminder3': '',
+          'reminder1': _reminderTextController1,
+          'reminder2': _reminderTextController2,
+          'reminder3': _reminderTextController3,
         }) // <-- customize mirror data
         .then((_) => print('Updated'))
         .catchError((error) => print('Update failed: $error'));

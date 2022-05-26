@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:smart_mirror/reusable_widgets/reusable_widget.dart';
+import 'package:smart_mirror/screens/customize_screen.dart';
 import 'package:smart_mirror/screens/upload_photo.dart';
 import 'package:smart_mirror/service/auth.dart';
 import 'package:smart_mirror/utils/my_clipper.dart';
@@ -527,7 +528,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    const UploadPhotoScreen())); //for sign up
+                                    const CustomizeScreen())); //for sign up
                       }).onError((error, stackTrace) async {
                         print("Error ${error.toString()}");
                         if (error.toString() ==

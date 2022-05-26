@@ -37,9 +37,15 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
   bool wwelcome = false;
   bool wfood = false;
   //user can add reminder to the mirror 
-  String reminder1 = '';
-  String reminder2 = '';
-  String reminder3 = '';
+  var reminder1 = '';
+  var reminder2 = '';
+  var reminder3 = '';
+    final TextEditingController _reminderTextController1 =
+      TextEditingController();
+  final TextEditingController _reminderTextController2 =
+      TextEditingController();
+  final TextEditingController _reminderTextController3 =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -266,24 +272,51 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                       size: 30,
                     ),
                   ),
-                  addReminderButton(context, false, () {
-                      if(wreminder == false){
-                         ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text(
-                                    'Please enable the reminder to add a reminder'), //if the reminder is not enabled then show this message
-                              ),
-                            );
-                            return;
-                      }
-                      else{
-                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ReminderScreen())); //navigate to the reminder screen
-                      }
-                   
-                  }),
+                                    const SizedBox(
+                    height: 10,
+                  ),
+                  const InkWell(
+                    child: Text(
+                      "Add Reminder:",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w300,
+                          fontSize: 20),
+                    ),
+                  ),
+                                    const SizedBox(
+                    height: 10,
+                  ),
+                  reusableTextField(
+                      reminder1,
+                      Icons.add_circle_outline_sharp,
+                      false, //  reusable text field
+                      _reminderTextController1),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  reusableTextField(
+                      reminder2,
+                      Icons.add_circle_outline_sharp,
+                      false, //  reusable text field
+                      _reminderTextController2),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  reusableTextField(
+                      reminder3,
+                      Icons.add_circle_outline_sharp,
+                      false, //  reusable text field
+                      _reminderTextController3),
+                                 const SizedBox(
+                    height: 10,
+                  ),
                   customizeMirrorButton(context, false, () { //saved the preferences to firebase
                     _authService
                         .customizeButton(
@@ -296,9 +329,9 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                       wreminder.toString(),
                       wwelcome.toString(),
                       wfood.toString(),
-                      reminder1.toString(),
-                      reminder2.toString(),
-                      reminder3.toString(),
+                      _reminderTextController1.text,
+                      _reminderTextController2.text,
+                      _reminderTextController3.text
                     ) // If inside of textfield is null then do not update from firestore database...
                         .then((value) {
                       return Navigator.push(
